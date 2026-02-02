@@ -13,6 +13,27 @@
             box-sizing: border-box;
         }
 
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            position: relative;
+        }
+
+        section, .container, .hero, nav, footer {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        img, svg, video {
+            max-width: 100%;
+            height: auto;
+        }
+
         :root {
             --primary: #E63946;
             --primary-dark: #C1121F;
@@ -152,7 +173,8 @@
             top: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 800px;
+            width: 100%;
+            max-width: 800px;
             height: 800px;
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
             pointer-events: none;
@@ -988,7 +1010,8 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 600px;
+            width: 100%;
+            max-width: 600px;
             height: 600px;
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
             pointer-events: none;
