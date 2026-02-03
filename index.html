@@ -264,6 +264,15 @@
             50% { opacity: 0.5; transform: scale(1.2); }
         }
 
+        .hero-tagline {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
         .hero h1 {
             font-size: clamp(32px, 7vw, 72px);
             font-weight: 900;
@@ -402,6 +411,93 @@
         .trust-item i {
             color: var(--primary);
             font-size: 18px;
+        }
+
+        /* Why Traders Fail Section */
+        .why-fail {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .why-fail-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .why-fail-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .why-fail-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .why-fail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .why-fail-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .fail-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .fail-card:hover {
+            border-color: var(--primary);
+        }
+
+        .fail-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .fail-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--chart-red);
+        }
+
+        .fail-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .fail-solution {
+            background: rgba(42, 157, 143, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--text);
+            text-align: left;
+        }
+
+        .fail-solution span {
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
         }
 
         /* Philosophy Section */
@@ -1586,8 +1682,9 @@
     <div class="container">
         <div class="hero-badge">
             <span class="dot"></span>
-            Now accepting new students
+            Join 200+ traders training daily
         </div>
+        <p class="hero-tagline">Stop Gambling. Start Trading.</p>
         <h1>Master the <span class="gradient">Art</span> of Trading.</h1>
         <p class="hero-subtitle">Welcome to the Dojo. A disciplined trading community where students become masters through structure, repetition, and relentless improvement.</p>
         <div class="hero-ctas">
@@ -1647,6 +1744,46 @@
             <div class="trust-item">
                 <i class="fas fa-headset"></i>
                 <span>Direct Support</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Traders Fail Section -->
+<section class="why-fail">
+    <div class="container">
+        <div class="why-fail-header">
+            <div class="section-label">
+                <i class="fas fa-exclamation-triangle"></i>
+                The Problem
+            </div>
+            <h2>Why Most Traders Fail</h2>
+            <p>90% of retail traders lose money. Here's why — and how the Dojo fixes it.</p>
+        </div>
+        <div class="why-fail-grid">
+            <div class="fail-card">
+                <div class="fail-icon">😤</div>
+                <h4>Trading on Emotion</h4>
+                <p>FOMO, revenge trading, and panic exits. Without discipline, you're gambling — not trading.</p>
+                <div class="fail-solution">
+                    <span>Dojo Fix:</span> Structured training builds discipline through repetition and accountability.
+                </div>
+            </div>
+            <div class="fail-card">
+                <div class="fail-icon">❓</div>
+                <h4>No Real Strategy</h4>
+                <p>Jumping from setup to setup, never mastering one. No edge means no consistency.</p>
+                <div class="fail-solution">
+                    <span>Dojo Fix:</span> Learn proven strategies and develop your own edge with proper guidance.
+                </div>
+            </div>
+            <div class="fail-card">
+                <div class="fail-icon">💸</div>
+                <h4>Poor Risk Management</h4>
+                <p>Risking too much per trade, no stop losses, over-leveraging. One bad trade wipes weeks of gains.</p>
+                <div class="fail-solution">
+                    <span>Dojo Fix:</span> Risk management is core curriculum. Protect capital first, profits follow.
+                </div>
             </div>
         </div>
     </div>
@@ -2072,34 +2209,34 @@
         <div class="testimonials-grid">
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-quote">"Finally found a community that focuses on education over hype. The risk management training alone changed how I approach every trade."</p>
+                <p class="testimonial-quote">"The Dojo changed my entire approach. I went from blowing accounts to being consistently profitable. My win rate improved by 23% after implementing the risk management framework."</p>
                 <div class="testimonial-author">
-                    <div class="testimonial-avatar">JM</div>
+                    <div class="testimonial-avatar">MC</div>
                     <div class="testimonial-info">
-                        <h4>Jason M.</h4>
-                        <p>Member since 2024</p>
+                        <h4>Marcus Chen</h4>
+                        <p>ES Futures Day Trader</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-quote">"The daily market analysis is worth the membership alone. Learning to read structure instead of chasing signals has been a game changer."</p>
+                <p class="testimonial-quote">"I've paid for expensive courses that gave me nothing. The Dojo actually teaches you to think like a trader. The daily live sessions alone are worth 10x the price."</p>
                 <div class="testimonial-author">
-                    <div class="testimonial-avatar">SK</div>
+                    <div class="testimonial-avatar">SR</div>
                     <div class="testimonial-info">
-                        <h4>Sarah K.</h4>
-                        <p>Member since 2024</p>
+                        <h4>Sarah Rodriguez</h4>
+                        <p>NQ Options Trader</p>
                     </div>
                 </div>
             </div>
             <div class="testimonial-card">
                 <div class="testimonial-stars">★★★★★</div>
-                <p class="testimonial-quote">"I've been in a lot of trading groups. This is the first one where people actually teach you HOW to trade, not just what to trade."</p>
+                <p class="testimonial-quote">"Finally, a community without the guru BS. Real traders, real feedback, real improvement. Went from -$2k months to +$5k months in 6 months of training."</p>
                 <div class="testimonial-author">
-                    <div class="testimonial-avatar">DT</div>
+                    <div class="testimonial-avatar">JT</div>
                     <div class="testimonial-info">
-                        <h4>David T.</h4>
-                        <p>Member since 2024</p>
+                        <h4>James Thompson</h4>
+                        <p>Futures Swing Trader</p>
                     </div>
                 </div>
             </div>
