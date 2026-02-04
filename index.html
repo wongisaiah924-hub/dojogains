@@ -310,10 +310,8 @@
 
         /* Text rotation animation */
         .rotating-text {
-            display: inline-block;
-            position: relative;
-            min-width: 200px;
-            text-align: left;
+            display: inline;
+            color: var(--primary);
         }
 
         .rotating-text span {
@@ -327,8 +325,8 @@
         }
 
         @keyframes fadeWord {
-            0% { opacity: 0; transform: translateY(10px); }
-            100% { opacity: 1; transform: translateY(0); }
+            0% { opacity: 0; }
+            100% { opacity: 1; }
         }
 
         /* Glow pulse for CTA */
@@ -1824,7 +1822,7 @@
             Join 200+ traders training daily
         </div>
         <p class="hero-tagline fade-in-up delay-1">Stop Gambling. Start Trading.</p>
-        <h1 class="fade-in-up delay-2">Master the <span class="gradient">Art</span> of <span class="rotating-text"><span>Trading</span><span>Discipline</span><span>Execution</span><span>Mastery</span></span></h1>
+        <h1 class="fade-in-up delay-2">Master the <span class="gradient">Art</span> of <span class="rotating-text"><span>Trading.</span><span>Discipline.</span><span>Execution.</span><span>Mastery.</span></span></h1>
         <p class="hero-subtitle fade-in-up delay-3">Welcome to the Dojo. A disciplined trading community where students become masters through structure, repetition, and relentless improvement.</p>
         <div class="hero-ctas fade-in-up delay-4">
             <a href="#pricing" class="btn btn-primary">
