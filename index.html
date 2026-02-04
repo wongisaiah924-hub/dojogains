@@ -308,26 +308,7 @@
         .delay-3 { animation-delay: 0.6s; opacity: 0; }
         .delay-4 { animation-delay: 0.8s; opacity: 0; }
 
-        /* Text rotation animation */
-        .rotating-text {
-            display: inline;
-            color: var(--primary);
-        }
-
-        .rotating-text span {
-            display: none;
-            color: var(--primary);
-        }
-
-        .rotating-text span.active {
-            display: inline;
-            animation: fadeWord 0.5s ease-in-out;
-        }
-
-        @keyframes fadeWord {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+        /* Removed rotating text */
 
         /* Glow pulse for CTA */
         @keyframes glowPulse {
@@ -1822,7 +1803,7 @@
             Join 200+ traders training daily
         </div>
         <p class="hero-tagline fade-in-up delay-1">Stop Gambling. Start Trading.</p>
-        <h1 class="fade-in-up delay-2">Master the <span class="gradient">Art</span> of <span class="rotating-text"><span>Trading.</span><span>Discipline.</span><span>Execution.</span><span>Mastery.</span></span></h1>
+        <h1 class="fade-in-up delay-2">Master the <span class="gradient">Art</span> of Trading.</h1>
         <p class="hero-subtitle fade-in-up delay-3">Welcome to the Dojo. A disciplined trading community where students become masters through structure, repetition, and relentless improvement.</p>
         <div class="hero-ctas fade-in-up delay-4">
             <a href="#pricing" class="btn btn-primary">
@@ -2543,19 +2524,7 @@
 
     setInterval(nextSlide, 5000);
 
-    // Rotating text
-    const rotatingWords = document.querySelectorAll('.rotating-text span');
-    let currentWord = 0;
-    
-    if (rotatingWords.length > 0) {
-        rotatingWords[0].classList.add('active');
-        
-        setInterval(() => {
-            rotatingWords[currentWord].classList.remove('active');
-            currentWord = (currentWord + 1) % rotatingWords.length;
-            rotatingWords[currentWord].classList.add('active');
-        }, 2500);
-    }
+    // Rotating text removed
 
     // Animate elements on scroll
     const observerOptions = {
