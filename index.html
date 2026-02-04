@@ -117,21 +117,6 @@
             padding: 0 24px;
         }
 
-        /* Ticker */
-        .ticker-wrap {
-            position: fixed;
-            top: 65px;
-            left: 0;
-            right: 0;
-            z-index: 999;
-            background: var(--dark-secondary);
-            border-bottom: 1px solid var(--border);
-        }
-
-        .tradingview-widget-container {
-            width: 100%;
-        }
-
         /* Navigation */
         nav {
             position: fixed;
@@ -227,7 +212,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 200px 0 100px;
+            padding: 140px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -236,7 +221,7 @@
 
         @media (max-width: 768px) {
             .hero {
-                padding: 120px 0 60px;
+                padding: 100px 0 60px;
             }
         }
 
@@ -251,32 +236,6 @@
             height: 800px;
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
             pointer-events: none;
-        }
-
-        .hero-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--dark-secondary);
-            border: 1px solid var(--border);
-            padding: 8px 16px;
-            border-radius: 50px;
-            font-size: 13px;
-            color: var(--text-muted);
-            margin-bottom: 32px;
-        }
-
-        .hero-badge .dot {
-            width: 8px;
-            height: 8px;
-            background: var(--primary);
-            border-radius: 50%;
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(1.2); }
         }
 
         /* Fade in animation */
@@ -1710,39 +1669,9 @@
     </div>
 </nav>
 
-<!-- TradingView Ticker -->
-<div class="ticker-wrap">
-    <!-- TradingView Widget BEGIN -->
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {
-            "symbols": [
-                {"description": "ES", "proName": "CME_MINI:ES1!"},
-                {"description": "NQ", "proName": "CME_MINI:NQ1!"},
-                {"description": "SPY", "proName": "AMEX:SPY"},
-                {"description": "QQQ", "proName": "NASDAQ:QQQ"},
-                {"description": "DXY", "proName": "TVC:DXY"},
-                {"description": "VIX", "proName": "TVC:VIX"}
-            ],
-            "showSymbolLogo": true,
-            "isTransparent": true,
-            "displayMode": "adaptive",
-            "colorTheme": "dark",
-            "locale": "en"
-        }
-        </script>
-    </div>
-    <!-- TradingView Widget END -->
-</div>
-
 <!-- Hero Section -->
 <section class="hero">
     <div class="container">
-        <div class="hero-badge">
-            <span class="dot"></span>
-            Join 200+ traders training daily
-        </div>
         <p class="hero-tagline">Stop Gambling. Start Trading.</p>
         <h1>Master the <span class="gradient">Art</span> of Trading.</h1>
         <p class="hero-subtitle">Welcome to the Dojo. A disciplined trading community where students become masters through structure, repetition, and relentless improvement.</p>
