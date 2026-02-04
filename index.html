@@ -117,6 +117,21 @@
             padding: 0 24px;
         }
 
+        /* Ticker */
+        .ticker-wrap {
+            position: fixed;
+            top: 65px;
+            left: 0;
+            right: 0;
+            z-index: 999;
+            background: var(--dark-secondary);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tradingview-widget-container {
+            width: 100%;
+        }
+
         /* Navigation */
         nav {
             position: fixed;
@@ -212,7 +227,7 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 0 100px;
+            padding: 200px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -1694,6 +1709,32 @@
         </button>
     </div>
 </nav>
+
+<!-- TradingView Ticker -->
+<div class="ticker-wrap">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+        <div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+        {
+            "symbols": [
+                {"description": "ES", "proName": "CME_MINI:ES1!"},
+                {"description": "NQ", "proName": "CME_MINI:NQ1!"},
+                {"description": "SPY", "proName": "AMEX:SPY"},
+                {"description": "QQQ", "proName": "NASDAQ:QQQ"},
+                {"description": "DXY", "proName": "TVC:DXY"},
+                {"description": "VIX", "proName": "TVC:VIX"}
+            ],
+            "showSymbolLogo": true,
+            "isTransparent": true,
+            "displayMode": "adaptive",
+            "colorTheme": "dark",
+            "locale": "en"
+        }
+        </script>
+    </div>
+    <!-- TradingView Widget END -->
+</div>
 
 <!-- Hero Section -->
 <section class="hero">
