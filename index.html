@@ -312,23 +312,23 @@
         .rotating-text {
             display: inline-block;
             position: relative;
-            height: 1.2em;
-            overflow: hidden;
-            vertical-align: bottom;
+            min-width: 200px;
+            text-align: left;
         }
 
         .rotating-text span {
-            display: block;
-            animation: rotateWords 8s infinite;
+            display: none;
             color: var(--primary);
         }
 
-        @keyframes rotateWords {
-            0%, 20% { transform: translateY(0); }
-            25%, 45% { transform: translateY(-100%); }
-            50%, 70% { transform: translateY(-200%); }
-            75%, 95% { transform: translateY(-300%); }
-            100% { transform: translateY(0); }
+        .rotating-text span.active {
+            display: inline;
+            animation: fadeWord 0.5s ease-in-out;
+        }
+
+        @keyframes fadeWord {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
         }
 
         /* Glow pulse for CTA */
@@ -2544,6 +2544,20 @@
     }
 
     setInterval(nextSlide, 5000);
+
+    // Rotating text
+    const rotatingWords = document.querySelectorAll('.rotating-text span');
+    let currentWord = 0;
+    
+    if (rotatingWords.length > 0) {
+        rotatingWords[0].classList.add('active');
+        
+        setInterval(() => {
+            rotatingWords[currentWord].classList.remove('active');
+            currentWord = (currentWord + 1) % rotatingWords.length;
+            rotatingWords[currentWord].classList.add('active');
+        }, 2500);
+    }
 
     // Animate elements on scroll
     const observerOptions = {
