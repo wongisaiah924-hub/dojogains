@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dojo Gains | Master the Art of Trading</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
@@ -765,6 +768,44 @@
         .feature-list li i {
             color: var(--primary);
             font-size: 12px;
+        }
+
+        /* Discord Preview Section */
+        .discord-preview {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .discord-preview-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .discord-preview-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .discord-preview-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .discord-preview-image {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .discord-preview-image img {
+            width: 100%;
+            display: block;
         }
 
         /* Pricing Section */
@@ -1953,6 +1994,23 @@
                     <li><i class="fas fa-check"></i> Personalized feedback & adjustments</li>
                 </ul>
             </div>
+        </div>
+    </div>
+</section>
+
+<!-- Discord Preview Section -->
+<section class="discord-preview">
+    <div class="container">
+        <div class="discord-preview-header">
+            <div class="section-label">
+                <i class="fab fa-discord"></i>
+                Your New Trading Home
+            </div>
+            <h2>Inside the Dojo Discord</h2>
+            <p>Organized channels. Active community. Role-based access unlocks as you level up.</p>
+        </div>
+        <div class="discord-preview-image">
+            <img src="/discord-preview.png" alt="Dojo Gains Discord Server Preview">
         </div>
     </div>
 </section>
