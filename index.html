@@ -667,6 +667,7 @@
             border-radius: 12px;
             padding: 28px;
             transition: all 0.3s ease;
+            overflow: hidden;
         }
 
         .learn-item:hover {
@@ -2419,7 +2420,7 @@
         });
     }, { threshold: 0.1 });
 
-    document.querySelectorAll('.pricing-card, .feature-card, .learn-item, .audience-card, .testimonial-card').forEach(el => {
+    document.querySelectorAll('.pricing-card, .feature-card, .audience-card, .testimonial-card').forEach(el => {
         el.style.opacity = '0';
         observer.observe(el);
     });
