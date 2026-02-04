@@ -1359,6 +1359,13 @@
             aspect-ratio: 4/3;
             background: var(--dark-tertiary);
             position: relative;
+            overflow: hidden;
+        }
+
+        .win-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .win-placeholder {
@@ -2216,14 +2223,11 @@
             </div>
             <div class="win-card">
                 <div class="win-image">
-                    <div class="win-placeholder">
-                        <i class="fas fa-chart-line"></i>
-                        <span>Trade Screenshot</span>
-                    </div>
+                    <img src="/trade-win-1.jpg" alt="MNQ Trade +$91.50">
                 </div>
                 <div class="win-info">
-                    <span class="win-tag profit">+$650</span>
-                    <p>MNQ Scalp — Quick 2R play</p>
+                    <span class="win-tag profit">+$91.50</span>
+                    <p>MNQ Futures — Clean entry</p>
                 </div>
             </div>
         </div>
