@@ -213,7 +213,7 @@
             </ul>
         </div>
         
-        <form id="application-form" action="https://formspree.io/f/xpwzgvqd" method="POST">
+        <form id="application-form">
             <div class="form-group">
                 <label for="name">Full Name *</label>
                 <input type="text" id="name" name="name" required>
@@ -255,8 +255,6 @@
                 <textarea id="why" name="why" placeholder="Tell us about yourself and why you're ready for 1-on-1 mentorship." required></textarea>
             </div>
             
-            <input type="hidden" name="_subject" value="New Black Belt Application - Dojo Gains">
-            
             <button type="submit" class="btn-submit">Submit Application</button>
             
             <p class="note">Applications are reviewed within 48 hours. Limited spots available.</p>
@@ -273,13 +271,39 @@
             e.preventDefault();
             
             const form = e.target;
-            const data = new FormData(form);
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const discord = document.getElementById('discord').value || 'Not provided';
+            const experience = document.getElementById('experience').value;
+            const markets = document.getElementById('markets').value;
+            const goals = document.getElementById('goals').value;
+            const why = document.getElementById('why').value;
+            
+            const webhookUrl = 'https://discord.com/api/webhooks/1469168916604653661/zUcEbdAGXw0rC7vcqX5EsxInAWVr5v3LRP-VKbk-z40ZQn-9SxEPHBWplBMo32tRNO4T';
+            
+            const embed = {
+                embeds: [{
+                    title: '🖤 New Black Belt Application',
+                    color: 0xE63946,
+                    fields: [
+                        { name: '👤 Name', value: name, inline: true },
+                        { name: '📧 Email', value: email, inline: true },
+                        { name: '💬 Discord', value: discord, inline: true },
+                        { name: '📊 Experience', value: experience, inline: true },
+                        { name: '📈 Markets', value: markets, inline: true },
+                        { name: '🎯 Goals', value: goals.substring(0, 1000), inline: false },
+                        { name: '❓ Why Black Belt', value: why.substring(0, 1000), inline: false }
+                    ],
+                    timestamp: new Date().toISOString(),
+                    footer: { text: 'Dojo Gains Application' }
+                }]
+            };
             
             try {
-                await fetch(form.action, {
+                await fetch(webhookUrl, {
                     method: 'POST',
-                    body: data,
-                    headers: { 'Accept': 'application/json' }
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(embed)
                 });
                 
                 form.style.display = 'none';
