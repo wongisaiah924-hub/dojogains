@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | Dojo Gains</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --dark-primary: #0a0a0a;
+            --dark-secondary: #111111;
+            --dark-card: #1a1a1a;
+            --accent-red: #E63946;
+            --accent-green: #22C55E;
+            --gray: #888;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--dark-primary);
+            color: white;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: white;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        h1 span {
+            color: var(--accent-red);
+        }
+        
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
+            margin-bottom: 50px;
+        }
+        
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        
+        .faq-category h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .faq-item {
+            background: var(--dark-card);
+            border-radius: 12px;
+            margin-bottom: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px 24px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: rgba(255,255,255,0.02);
+        }
+        
+        .faq-question::after {
+            content: "+";
+            font-size: 1.5rem;
+            color: var(--accent-red);
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question::after {
+            transform: rotate(45deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .faq-answer-inner {
+            padding: 0 24px 24px;
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .faq-answer-inner a {
+            color: var(--accent-red);
+        }
+        
+        .cta-box {
+            background: linear-gradient(135deg, var(--dark-card), rgba(230, 57, 70, 0.1));
+            border: 1px solid rgba(230, 57, 70, 0.2);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .cta-box h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            margin-bottom: 12px;
+        }
+        
+        .cta-box p {
+            color: var(--gray);
+            margin-bottom: 24px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--accent-red);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn:hover {
+            background: #d32f3f;
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="/" class="back-link">← Back to Dojo Gains</a>
+        
+        <h1>FREQUENTLY ASKED <span>QUESTIONS</span></h1>
+        <p class="subtitle">Everything you need to know before joining the Dojo.</p>
+        
+        <!-- Getting Started -->
+        <div class="faq-category">
+            <h2>🥋 Getting Started</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do I need trading experience to join?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        No prior experience needed. Our curriculum starts from the fundamentals and builds up. Whether you're brand new or have some experience, you'll find value in the structured approach. We teach Smart Money Concepts (SMC) from the ground up.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What markets do you trade?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We primarily focus on <strong>NQ (Nasdaq futures)</strong> and <strong>ES (S&P 500 futures)</strong>. The concepts taught apply to any market — stocks, forex, crypto — but our live analysis and examples center on index futures.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What trading style do you teach?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        We teach <strong>Smart Money Concepts (SMC/ICT)</strong> — understanding how institutions move the market. The core pillars are Liquidity, Time, and Imbalances. No indicators, no guessing. Just price action and market structure.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Membership -->
+        <div class="faq-category">
+            <h2>💳 Membership & Pricing</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's the difference between White Belt and Brown Belt?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <strong>White Belt ($49.99/month)</strong> gives you full Discord access, live trading sessions, and weekly watchlists. Great for ongoing community and live learning.<br><br>
+                        <strong>Brown Belt ($347 one-time)</strong> gives you lifetime access to the complete A-Z video course plus 6 months of White Belt included. Best value for serious students.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Can I cancel anytime?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Yes. White Belt is month-to-month with no contracts. Cancel anytime from your Whop dashboard. Brown Belt is a one-time payment with lifetime course access.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is there a refund policy?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Due to the digital nature of the content, we don't offer refunds once you've accessed the material. We recommend starting with Spectator (free) to see if the community is right for you before upgrading.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What is Black Belt?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Black Belt is our private 1-on-1 mentorship program. Limited spots, application required. You get direct access to your mentor, personalized trading plan, strategy reviews, and trade journaling feedback. <a href="/apply.html">Apply here</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Community -->
+        <div class="faq-category">
+            <h2>💬 Community & Access</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How do I access the Discord?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        After purchase on Whop, you'll automatically get access to our Discord server. Your role (White Belt, Brown Belt, etc.) is assigned automatically. Make sure to link your Discord account on Whop.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">What's included in the Discord?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        Live trading sessions, daily market analysis, weekly watchlists, trade ideas, community chat, and direct Q&A. The Discord is where the community comes alive — it's not just a course, it's ongoing education and support.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Is this a signal service?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <strong>No.</strong> Dojo Gains is an education community. We don't give trade signals or tell you what to buy/sell. We teach you <em>how</em> to analyze the market yourself so you can make your own decisions. The goal is independence, not dependence.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Results -->
+        <div class="faq-category">
+            <h2>📈 Results & Expectations</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">How long until I become profitable?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        There's no guaranteed timeline — trading is a skill that takes time to develop. Most students see meaningful progress within 3-6 months of consistent practice. It depends on your dedication, screen time, and how well you follow the process.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">Do you guarantee profits?</div>
+                <div class="faq-answer">
+                    <div class="faq-answer-inner">
+                        <strong>No.</strong> Trading involves risk, and no one can guarantee profits. We provide education, structure, and community — but your results depend on you. Anyone promising guaranteed returns is lying to you.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="cta-box">
+            <h3>Still have questions?</h3>
+            <p>Join as a free Spectator and ask in the community.</p>
+            <a href="https://whop.com/dojo-gains-club/white-belt-free/" class="btn">Join Free</a>
+        </div>
+    </div>
+    
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
