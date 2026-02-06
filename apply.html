@@ -279,31 +279,13 @@
             const goals = document.getElementById('goals').value;
             const why = document.getElementById('why').value;
             
-            const webhookUrl = 'https://discord.com/api/webhooks/1469168916604653661/zUcEbdAGXw0rC7vcqX5EsxInAWVr5v3LRP-VKbk-z40ZQn-9SxEPHBWplBMo32tRNO4T';
-            
-            const embed = {
-                embeds: [{
-                    title: '🖤 New Black Belt Application',
-                    color: 0xE63946,
-                    fields: [
-                        { name: '👤 Name', value: name, inline: true },
-                        { name: '📧 Email', value: email, inline: true },
-                        { name: '💬 Discord', value: discord, inline: true },
-                        { name: '📊 Experience', value: experience, inline: true },
-                        { name: '📈 Markets', value: markets, inline: true },
-                        { name: '🎯 Goals', value: goals.substring(0, 1000), inline: false },
-                        { name: '❓ Why Black Belt', value: why.substring(0, 1000), inline: false }
-                    ],
-                    timestamp: new Date().toISOString(),
-                    footer: { text: 'Dojo Gains Application' }
-                }]
-            };
+            const appData = { name, email, discord, experience, markets, goals, why };
             
             try {
-                await fetch(webhookUrl, {
+                await fetch('http://5.161.243.84:3848/application', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(embed)
+                    body: JSON.stringify(appData)
                 });
                 
                 form.style.display = 'none';
