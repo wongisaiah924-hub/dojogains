@@ -1,0 +1,2437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojo Gains | Master the Art of Trading</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            min-width: 0;
+            position: relative;
+        }
+
+        .page-wrapper {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        *::before, *::after {
+            max-width: 100vw;
+        }
+
+        section {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            overflow-x: hidden;
+        }
+
+        img, svg, video, iframe {
+            max-width: 100%;
+            height: auto;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 16px;
+            }
+            
+            .hero h1 {
+                font-size: 32px;
+                word-wrap: break-word;
+            }
+            
+            .pricing-card, .feature-card, .testimonial-card, .audience-card, .learn-item, .win-card, .faq-item, .who-card {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-ctas, .final-cta-buttons {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .trust-row {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+
+        :root {
+            --primary: #E63946;
+            --primary-dark: #C1121F;
+            --primary-glow: rgba(230, 57, 70, 0.15);
+            --gold: #F4A261;
+            --gold-dark: #E07A30;
+            --accent: #2A9D8F;
+            --dark: #0A0A0C;
+            --dark-secondary: #111114;
+            --dark-tertiary: #1A1A1F;
+            --border: #2A2A32;
+            --text: #FFFFFF;
+            --text-muted: #9A9AAA;
+            --success: #2A9D8F;
+            --chart-green: #2A9D8F;
+            --chart-red: #E63946;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--dark);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(9, 9, 11, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+        }
+
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.1;
+        }
+
+        .logo-text .capital {
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            color: var(--text);
+        }
+
+        .logo-text .gains-club {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            background: var(--primary) !important;
+            color: var(--dark) !important;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 600 !important;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark) !important;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 140px 0 100px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                padding: 100px 0 60px;
+            }
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Fade in animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .hero-tagline {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 7vw, 72px);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            max-width: 100%;
+            padding: 0 20px;
+            margin-left: auto;
+            margin-right: auto;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .hero h1 .gradient {
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+        .hero-ctas {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: 15px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--dark);
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(230, 57, 70, 0.4);
+        }
+
+        .btn-secondary {
+            background: var(--dark-secondary);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--dark-tertiary);
+            border-color: var(--text-muted);
+        }
+
+        .hero-note {
+            margin-top: 24px;
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 60px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: var(--dark-secondary);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .stat h3 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            background: linear-gradient(135deg, var(--text), var(--text-muted));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+
+        /* Trust Badges */
+        .trust-badges {
+            padding: 24px 0;
+            background: var(--dark);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-row {
+            display: flex;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .trust-item i {
+            color: var(--primary);
+            font-size: 18px;
+        }
+
+        /* Why Traders Fail Section */
+        .why-fail {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .why-fail-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .why-fail-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .why-fail-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .why-fail-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .why-fail-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .fail-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .fail-card:hover {
+            border-color: var(--primary);
+        }
+
+        .fail-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .fail-card h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--chart-red);
+        }
+
+        .fail-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .fail-solution {
+            background: rgba(42, 157, 143, 0.1);
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 13px;
+            color: var(--text);
+            text-align: left;
+        }
+
+        .fail-solution span {
+            color: var(--accent);
+            font-weight: 700;
+            display: block;
+            margin-bottom: 4px;
+        }
+
+        /* Philosophy Section */
+        .philosophy {
+            padding: 120px 0;
+        }
+
+        .philosophy-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        @media (max-width: 900px) {
+            .philosophy-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        .philosophy-visual {
+            max-width: 100%;
+            overflow: hidden;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 16px;
+        }
+
+        .philosophy h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .philosophy p {
+            color: var(--text-muted);
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 16px;
+        }
+
+        .philosophy-visual {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+        }
+
+        .trading-card {
+            background: var(--dark-tertiary);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+        }
+
+        .trading-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .ticker {
+            font-weight: 700;
+            font-size: 16px;
+        }
+
+        .ticker-change {
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .ticker-change.up { color: var(--chart-green); }
+        .ticker-change.down { color: var(--chart-red); }
+
+        .mini-chart {
+            height: 40px;
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+        }
+
+        .mini-chart .bar {
+            flex: 1;
+            background: var(--primary);
+            border-radius: 2px;
+            opacity: 0.6;
+        }
+
+        /* What You'll Learn Section */
+        .learn-section {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .learn-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .learn-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .learn-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .learn-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .learn-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .learn-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .learn-item {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .learn-item:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .learn-number {
+            font-size: 32px;
+            font-weight: 900;
+            color: var(--primary);
+            opacity: 0.3;
+            margin-bottom: 12px;
+        }
+
+        .learn-item h4 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .learn-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+            background: var(--dark-secondary);
+        }
+
+        .features-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 80px;
+        }
+
+        .features-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .features-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 1000px) {
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .feature-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 36px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .feature-icon {
+            width: 52px;
+            height: 52px;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.2), rgba(244, 162, 97, 0.15));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            padding: 8px 0;
+            font-size: 14px;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .feature-list li i {
+            color: var(--primary);
+            font-size: 12px;
+        }
+
+        /* Discord Preview Section */
+        .discord-preview {
+            padding: 100px 0;
+            background: var(--dark);
+        }
+
+        .discord-preview-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 48px;
+        }
+
+        .discord-preview-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .discord-preview-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .discord-preview-image {
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .discord-preview-image img {
+            width: 100%;
+            display: block;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 120px 0;
+        }
+
+        .pricing-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .pricing-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .pricing-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .pricing-grid.four-col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (max-width: 1100px) {
+            .pricing-grid.four-col {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .pricing-grid,
+            .pricing-grid.four-col {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        .pricing-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            border-color: var(--text-muted);
+        }
+
+        .pricing-card.featured {
+            border-color: var(--primary);
+            background: linear-gradient(180deg, rgba(230, 57, 70, 0.1) 0%, var(--dark-secondary) 100%);
+        }
+
+        .pricing-card.featured::before {
+            content: 'MOST POPULAR';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: var(--dark);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .pricing-tier {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .pricing-amount {
+            margin-bottom: 8px;
+        }
+
+        .pricing-amount .price {
+            font-size: 48px;
+            font-weight: 800;
+        }
+
+        .pricing-amount .period {
+            font-size: 16px;
+            color: var(--text-muted);
+        }
+
+        .pricing-note {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            min-height: 20px;
+        }
+
+        .pricing-note.trial {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .pricing-note.lifetime {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .pricing-note.bundle {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .pricing-card.mentor {
+            border-color: var(--gold);
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.05) 0%, var(--dark-secondary) 100%);
+        }
+
+        .pricing-card.mentor .pricing-tier {
+            color: var(--gold);
+        }
+
+        .pricing-extras {
+            text-align: center;
+            margin-top: 40px;
+            padding: 20px;
+            background: var(--dark-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .pricing-extras p {
+            color: var(--text-muted);
+            font-size: 15px;
+            margin: 0;
+        }
+
+        .pricing-extras a {
+            color: var(--primary);
+            text-decoration: underline;
+        }
+
+        .pricing-extras a:hover {
+            color: var(--gold);
+        }
+
+        .pricing-card.free {
+            border-color: var(--gold);
+            background: linear-gradient(180deg, rgba(255, 215, 0, 0.05) 0%, var(--dark-secondary) 100%);
+        }
+
+        .pricing-card.free .pricing-tier {
+            color: var(--gold);
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+
+        .pricing-card ul li {
+            padding: 10px 0;
+            font-size: 14px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .pricing-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .pricing-card ul li i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* How It Works */
+        .how-it-works {
+            padding: 120px 0;
+            background: var(--dark-secondary);
+        }
+
+        .how-it-works-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 80px;
+        }
+
+        .how-it-works-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .steps {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        .step {
+            text-align: center;
+            position: relative;
+        }
+
+        .step-number {
+            width: 56px;
+            height: 56px;
+            background: var(--dark);
+            border: 2px solid var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary);
+            margin: 0 auto 20px;
+        }
+
+        .step h4 {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .step p {
+            font-size: 13px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Who It's For */
+        .audience {
+            padding: 120px 0;
+        }
+
+        .audience-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .audience-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .audience-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .audience-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .audience-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .audience-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .audience-card:hover {
+            border-color: var(--primary);
+        }
+
+        .audience-card .icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, rgba(230, 57, 70, 0.15), rgba(244, 162, 97, 0.1));
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin: 0 auto 20px;
+        }
+
+        .audience-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .audience-card p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* Not For Section */
+        .not-for {
+            padding: 80px 0;
+            background: var(--dark-secondary);
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .not-for-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .not-for h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .not-for-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .not-for-item {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-size: 14px;
+            color: #FCA5A5;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .not-for-item i {
+            color: var(--chart-red);
+        }
+
+        /* CTA Section */
+        .final-cta {
+            padding: 120px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .final-cta::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .final-cta h2 {
+            font-size: 48px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-secondary);
+            border-top: 1px solid var(--border);
+            padding: 60px 0 40px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        .footer-bottom {
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-bottom p {
+            font-size: 12px;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 1.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Mobile Nav */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                letter-spacing: -1px;
+            }
+
+            .pricing-card.featured {
+                order: -1;
+            }
+        }
+
+        /* Wins Section */
+        .wins {
+            padding: 120px 0;
+            background: var(--dark-secondary);
+        }
+
+        .wins-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .wins-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .wins-header p {
+            color: var(--text-muted);
+            font-size: 18px;
+        }
+
+        .wins-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        @media (max-width: 1000px) {
+            .wins-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .wins-grid {
+                grid-template-columns: 1fr;
+                max-width: 350px;
+                margin: 0 auto;
+            }
+        }
+
+        .win-card {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .win-card:hover {
+            border-color: var(--primary);
+            transform: translateY(-4px);
+        }
+
+        .win-image {
+            aspect-ratio: 4/3;
+            background: var(--dark-tertiary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .win-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .win-placeholder {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            gap: 8px;
+        }
+
+        .win-placeholder i {
+            font-size: 32px;
+            opacity: 0.5;
+        }
+
+        .win-placeholder span {
+            font-size: 12px;
+            opacity: 0.5;
+        }
+
+        .win-info {
+            padding: 16px;
+        }
+
+        .win-tag {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .win-tag.profit {
+            background: rgba(0, 210, 106, 0.15);
+            color: var(--primary);
+        }
+
+        .win-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        .wins-disclaimer {
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+            margin-top: 40px;
+            opacity: 0.7;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 120px 0;
+        }
+
+        .testimonials-header {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto 60px;
+        }
+
+        .testimonials-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            margin-bottom: 16px;
+            letter-spacing: -1px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        .testimonial-card {
+            background: var(--dark-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 32px;
+            transition: all 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--gold);
+        }
+
+        .testimonial-stars {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .testimonial-quote {
+            font-size: 15px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+            color: var(--text);
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary), var(--gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--dark);
+        }
+
+        .testimonial-info h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .testimonial-info p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Who Section */
+        .who-section {
+            padding: 100px 0;
+            background: var(--dark-secondary);
+        }
+
+        .who-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .who-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .who-card {
+            background: var(--dark);
+            border-radius: 16px;
+            padding: 36px;
+            border: 2px solid var(--border);
+        }
+
+        .who-card.for {
+            border-color: var(--primary);
+        }
+
+        .who-card.not {
+            border-color: var(--chart-red);
+        }
+
+        .who-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .who-card.for h3 {
+            color: var(--primary);
+        }
+
+        .who-card.not h3 {
+            color: var(--chart-red);
+        }
+
+        .who-card ul {
+            list-style: none;
+        }
+
+        .who-card ul li {
+            padding: 12px 0;
+            font-size: 15px;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .who-card ul li:last-child {
+            border-bottom: none;
+        }
+
+        .who-card.for ul li i {
+            color: var(--primary);
+            margin-top: 3px;
+        }
+
+        .who-card.not ul li i {
+            color: var(--chart-red);
+            margin-top: 3px;
+        }
+
+        /* Transparency Section */
+        .transparency {
+            padding: 80px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .transparency-content {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .transparency-icon {
+            width: 64px;
+            height: 64px;
+            background: rgba(230, 57, 70, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .transparency h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 16px;
+        }
+
+        .transparency p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.8;
+        }
+
+        /* FAQ Section */
+        .faq {
+            padding: 100px 0;
+            background: var(--dark-secondary);
+        }
+
+        .faq-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .faq-header h2 {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .faq-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .faq-item {
+            background: var(--dark);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 28px;
+        }
+
+        .faq-item h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .faq-item p {
+            font-size: 14px;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+
+        /* Final CTA Buttons */
+        .final-cta-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* Smooth scroll defined at top */
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+
+<!-- Navigation -->
+<nav>
+    <div class="container">
+        <a href="#" class="logo">
+            <div class="logo-icon">
+                <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="48" height="48" rx="10" fill="#E63946"/>
+                    <circle cx="24" cy="24" r="14" stroke="#0A0A0C" stroke-width="2.5" fill="none"/>
+                    <path d="M24 14V24L30 28" stroke="#0A0A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M18 34L24 28L30 34" stroke="#0A0A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <div class="logo-text">
+                <span class="capital">DOJO</span>
+                <span class="gains-club">Gains</span>
+            </div>
+        </a>
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="https://whop.com/dojo-gains-club/" target="_blank" class="nav-cta">Join Now</a>
+        </div>
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+    </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <p class="hero-tagline">Stop Gambling. Start Trading.</p>
+        <h1>Master the <span class="gradient">Art</span> of Trading.</h1>
+        <p class="hero-subtitle">Welcome to the Dojo. A disciplined trading community where students become masters through structure, repetition, and relentless improvement.</p>
+        <div class="hero-ctas">
+            <a href="#pricing" class="btn btn-primary">
+                <i class="fas fa-torii-gate"></i>
+                Enter the Dojo
+            </a>
+            <a href="#features" class="btn btn-secondary">
+                <i class="fas fa-eye"></i>
+                See the Training
+            </a>
+        </div>
+        <p class="hero-note">No shortcuts. No gimmicks. Only discipline, practice, and mastery.</p>
+    </div>
+</section>
+
+<!-- Stats -->
+<section class="stats">
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat">
+                <h3>Daily</h3>
+                <p>Pre-Market Analysis</p>
+            </div>
+            <div class="stat">
+                <h3>Live</h3>
+                <p>Voice Trading Sessions</p>
+            </div>
+            <div class="stat">
+                <h3>1-on-1</h3>
+                <p>Mentorship Available</p>
+            </div>
+            <div class="stat">
+                <h3>100%</h3>
+                <p>Education Focused</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Trust Badges -->
+<section class="trust-badges">
+    <div class="container">
+        <div class="trust-row">
+            <div class="trust-item">
+                <i class="fab fa-discord"></i>
+                <span>Instant Discord Access</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-lock"></i>
+                <span>Secure Whop Checkout</span>
+            </div>
+            <div class="trust-item">
+                <i class="fas fa-headset"></i>
+                <span>Direct Support</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Why Traders Fail Section -->
+<section class="why-fail">
+    <div class="container">
+        <div class="why-fail-header">
+            <div class="section-label">
+                <i class="fas fa-exclamation-triangle"></i>
+                The Problem
+            </div>
+            <h2>Why Most Traders Fail</h2>
+            <p>90% of retail traders lose money. Here's why — and how the Dojo fixes it.</p>
+        </div>
+        <div class="why-fail-grid">
+            <div class="fail-card">
+                <div class="fail-icon">😤</div>
+                <h4>Trading on Emotion</h4>
+                <p>FOMO, revenge trading, and panic exits. Without discipline, you're gambling — not trading.</p>
+                <div class="fail-solution">
+                    <span>Dojo Fix:</span> Structured training builds discipline through repetition and accountability.
+                </div>
+            </div>
+            <div class="fail-card">
+                <div class="fail-icon">❓</div>
+                <h4>No Real Strategy</h4>
+                <p>Jumping from setup to setup, never mastering one. No edge means no consistency.</p>
+                <div class="fail-solution">
+                    <span>Dojo Fix:</span> Learn proven strategies and develop your own edge with proper guidance.
+                </div>
+            </div>
+            <div class="fail-card">
+                <div class="fail-icon">💸</div>
+                <h4>Poor Risk Management</h4>
+                <p>Risking too much per trade, no stop losses, over-leveraging. One bad trade wipes weeks of gains.</p>
+                <div class="fail-solution">
+                    <span>Dojo Fix:</span> Risk management is core curriculum. Protect capital first, profits follow.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Philosophy Section -->
+<section class="philosophy">
+    <div class="container">
+        <div class="philosophy-content">
+            <div>
+                <div class="section-label">
+                    <i class="fas fa-yin-yang"></i>
+                    The Way
+                </div>
+                <h2>Discipline Over Desire.<br>Mastery Over Money.</h2>
+                <p>In the Dojo, we don't chase. We train. Every session builds your skills. Every loss teaches a lesson. Every win reinforces the process.</p>
+                <p>Like any martial art, trading mastery comes through repetition, discipline, and learning from those who've walked the path before you.</p>
+                <p>This is not a place for gamblers. This is a training ground for traders who want to master their craft.</p>
+            </div>
+            <div class="philosophy-visual">
+                <div class="trading-card">
+                    <div class="trading-card-header">
+                        <span class="ticker">ES /MES</span>
+                        <span class="ticker-change up">+1.2%</span>
+                    </div>
+                    <div class="mini-chart">
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 45%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 55%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                        <div class="bar" style="height: 65%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="bar" style="height: 75%"></div>
+                        <div class="bar" style="height: 85%"></div>
+                        <div class="bar" style="height: 100%"></div>
+                    </div>
+                </div>
+                <div class="trading-card">
+                    <div class="trading-card-header">
+                        <span class="ticker">NQ /MNQ</span>
+                        <span class="ticker-change up">+0.8%</span>
+                    </div>
+                    <div class="mini-chart">
+                        <div class="bar" style="height: 50%"></div>
+                        <div class="bar" style="height: 65%"></div>
+                        <div class="bar" style="height: 55%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 60%"></div>
+                        <div class="bar" style="height: 75%"></div>
+                        <div class="bar" style="height: 85%"></div>
+                        <div class="bar" style="height: 70%"></div>
+                        <div class="bar" style="height: 90%"></div>
+                        <div class="bar" style="height: 80%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- What You'll Learn -->
+<section class="learn-section">
+    <div class="container">
+        <div class="learn-header">
+            <div class="section-label">
+                <i class="fas fa-fist-raised"></i>
+                The Training
+            </div>
+            <h2>Skills You'll Master</h2>
+            <p>Six disciplines. Practiced daily. Mastered over time.</p>
+        </div>
+        <div class="learn-grid">
+            <div class="learn-item">
+                <div class="learn-number">一</div>
+                <h4>Read the Battlefield</h4>
+                <p>Master market structure, support, resistance, and trend</p>
+            </div>
+            <div class="learn-item">
+                <div class="learn-number">二</div>
+                <h4>Protect Your Capital</h4>
+                <p>Position sizing, stop losses, and risk management</p>
+            </div>
+            <div class="learn-item">
+                <div class="learn-number">三</div>
+                <h4>Strike With Precision</h4>
+                <p>Entry timing, trade execution, and clean exits</p>
+            </div>
+            <div class="learn-item">
+                <div class="learn-number">四</div>
+                <h4>Control Your Mind</h4>
+                <p>Defeat FOMO, revenge trading, and emotional decisions</p>
+            </div>
+            <div class="learn-item">
+                <div class="learn-number">五</div>
+                <h4>Follow the Code</h4>
+                <p>Build a trading plan and honor your rules</p>
+            </div>
+            <div class="learn-item">
+                <div class="learn-number">六</div>
+                <h4>Reflect & Sharpen</h4>
+                <p>Journal every trade, learn every lesson, improve daily</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="features" id="features">
+    <div class="container">
+        <div class="features-header">
+            <div class="section-label">
+                <i class="fas fa-yin-yang"></i>
+                Inside the Dojo
+            </div>
+            <h2>Your Complete Training Arsenal</h2>
+            <p>Everything you need to develop from student to master.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Daily Pre-Market Analysis</h3>
+                <p>Start every trading day prepared. Get morning watchlists, key levels, and market bias before the bell.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Morning watchlist videos</li>
+                    <li><i class="fas fa-check"></i> Key support & resistance levels</li>
+                    <li><i class="fas fa-check"></i> Market bias & directional outlook</li>
+                    <li><i class="fas fa-check"></i> Economic calendar breakdowns</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎙️</div>
+                <h3>Live Voice Trading Sessions</h3>
+                <p>Trade alongside experienced traders in real-time voice channels. See the thought process behind every decision.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Real-time trade commentary</li>
+                    <li><i class="fas fa-check"></i> Entry & exit explanations</li>
+                    <li><i class="fas fa-check"></i> Risk management in action</li>
+                    <li><i class="fas fa-check"></i> Q&A during market hours</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧠</div>
+                <h3>Complete Trading Course</h3>
+                <p>Comprehensive video education covering everything from basics to advanced strategies. Lifetime access.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Market structure & price action</li>
+                    <li><i class="fas fa-check"></i> Risk management & position sizing</li>
+                    <li><i class="fas fa-check"></i> Trading psychology mastery</li>
+                    <li><i class="fas fa-check"></i> Strategy development & backtesting</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><i class="fab fa-discord" style="color: #5865F2;"></i></div>
+                <h3>Private Discord Community</h3>
+                <p>Your new trading home. Instant access after signup. Role-based channels unlock based on your tier.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Auto-assigned Discord role</li>
+                    <li><i class="fas fa-check"></i> Dedicated trading channels</li>
+                    <li><i class="fas fa-check"></i> Live voice trading sessions</li>
+                    <li><i class="fas fa-check"></i> Peer accountability & support</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Trade Review & Journaling</h3>
+                <p>Submit your trades for review. Get feedback on what worked, what didn't, and how to improve.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Trade submission channel</li>
+                    <li><i class="fas fa-check"></i> Weekly trade review sessions</li>
+                    <li><i class="fas fa-check"></i> Journaling templates</li>
+                    <li><i class="fas fa-check"></i> Performance tracking guidance</li>
+                </ul>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎯</div>
+                <h3>1-on-1 Mentorship</h3>
+                <p>For traders who want accelerated growth with personalized coaching and accountability.</p>
+                <ul class="feature-list">
+                    <li><i class="fas fa-check"></i> Weekly private calls</li>
+                    <li><i class="fas fa-check"></i> Custom trading plan development</li>
+                    <li><i class="fas fa-check"></i> Direct DM access</li>
+                    <li><i class="fas fa-check"></i> Personalized feedback & adjustments</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Discord Preview Section -->
+<section class="discord-preview">
+    <div class="container">
+        <div class="discord-preview-header">
+            <div class="section-label">
+                <i class="fab fa-discord"></i>
+                Your New Trading Home
+            </div>
+            <h2>Inside the Dojo Discord</h2>
+            <p>Organized channels. Active community. Role-based access unlocks as you level up.</p>
+        </div>
+        <div class="discord-preview-image">
+            <img src="/discord-preview.png" alt="Dojo Gains Discord Server Preview">
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="pricing" id="pricing">
+    <div class="container">
+        <div class="pricing-header">
+            <div class="section-label">
+                <i class="fas fa-torii-gate"></i>
+                Choose Your Path
+            </div>
+            <h2>Begin Your Training</h2>
+            <p>Every master was once a beginner. Start where you are.</p>
+        </div>
+        <div class="pricing-grid four-col">
+            <div class="pricing-card free">
+                <div class="pricing-tier">FREE</div>
+                <h3>👁️ Spectator</h3>
+                <div class="pricing-amount">
+                    <span class="price">$0</span>
+                </div>
+                <p class="pricing-note">Watch and learn</p>
+                <ul>
+                    <li><i class="fab fa-discord"></i> Limited Discord access</li>
+                    <li><i class="fas fa-check"></i> Free community chat</li>
+                    <li><i class="fas fa-check"></i> Announcements & resources</li>
+                    <li><i class="fas fa-check"></i> Upgrade anytime</li>
+                </ul>
+                <a href="https://whop.com/dojo-gains-club/?pass=prod_SfAPHnCsSeXQr" target="_blank" class="btn btn-secondary">Join Free</a>
+            </div>
+            <div class="pricing-card">
+                <div class="pricing-tier">MONTHLY</div>
+                <h3>⬜ White Belt</h3>
+                <div class="pricing-amount">
+                    <span class="price">$49.99</span>
+                    <span class="period">/month</span>
+                </div>
+                <p class="pricing-note trial">Cancel anytime</p>
+                <ul>
+                    <li><i class="fab fa-discord"></i> Full Discord access</li>
+                    <li><i class="fas fa-check"></i> Live trading sessions</li>
+                    <li><i class="fas fa-check"></i> Weekly watchlists</li>
+                    <li><i class="fas fa-check"></i> Community chat & support</li>
+                </ul>
+                <a href="https://whop.com/dojo-gains-club/?pass=prod_HEv3FMCeDU4nw" target="_blank" class="btn btn-secondary">Start Training</a>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-tier">ONE-TIME</div>
+                <h3>🟤 Brown Belt</h3>
+                <div class="pricing-amount">
+                    <span class="price">$347</span>
+                </div>
+                <p class="pricing-note bundle">Lifetime course access</p>
+                <ul>
+                    <li><i class="fas fa-infinity"></i> Full A-Z course (lifetime)</li>
+                    <li><i class="fas fa-clock"></i> 3 months White Belt included</li>
+                    <li><i class="fas fa-check"></i> Downloadable resources</li>
+                    <li><i class="fas fa-check"></i> All future course updates</li>
+                </ul>
+                <a href="https://whop.com/dojo-gains-club/?pass=prod_oRd4Kp3vvEbCJ" target="_blank" class="btn btn-primary">Start Training</a>
+            </div>
+            <div class="pricing-card mentor">
+                <div class="pricing-tier">APPLICATION</div>
+                <h3>🖤 Black Belt</h3>
+                <div class="pricing-amount">
+                    <span class="price">Apply</span>
+                </div>
+                <p class="pricing-note">Limited spots • By application</p>
+                <ul>
+                    <li><i class="fas fa-infinity"></i> Lifetime course access</li>
+                    <li><i class="fas fa-infinity"></i> LIFETIME White Belt included</li>
+                    <li><i class="fas fa-user-ninja"></i> 1-on-1 mentorship</li>
+                    <li><i class="fas fa-check"></i> Personal trade reviews</li>
+                </ul>
+                <a href="/apply.html" class="btn btn-secondary">Apply Now</a>
+            </div>
+        </div>
+        <div class="pricing-extras">
+            <p><i class="fab fa-discord"></i> <strong>All paid tiers include instant Discord access.</strong> Your role is assigned automatically after purchase.</p>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works -->
+<section class="how-it-works" id="how-it-works">
+    <div class="container">
+        <div class="how-it-works-header">
+            <div class="section-label">
+                <i class="fas fa-door-open"></i>
+                Enter the Dojo
+            </div>
+            <h2>How to Begin</h2>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">一</div>
+                <h4>Choose Your Path</h4>
+                <p>Select the training level that matches your commitment</p>
+            </div>
+            <div class="step">
+                <div class="step-number">二</div>
+                <h4>Sign Up on Whop</h4>
+                <p>Complete secure checkout — instant access granted</p>
+            </div>
+            <div class="step">
+                <div class="step-number">三</div>
+                <h4>Join Discord</h4>
+                <p>Your role is auto-assigned. Enter the Dojo community</p>
+            </div>
+            <div class="step">
+                <div class="step-number">四</div>
+                <h4>Introduce Yourself</h4>
+                <p>Tell us your background, goals, and why you're here</p>
+            </div>
+            <div class="step">
+                <div class="step-number">五</div>
+                <h4>Begin Training</h4>
+                <p>Join live sessions and start your journey to mastery</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Who It's For -->
+<section class="audience">
+    <div class="container">
+        <div class="audience-header">
+            <div class="section-label">
+                <i class="fas fa-users"></i>
+                Who Trains Here
+            </div>
+            <h2>The Dojo Accepts All Levels</h2>
+            <p>Every master started as a white belt. What matters is your commitment to the craft.</p>
+        </div>
+        <div class="audience-grid">
+            <div class="audience-card">
+                <div class="icon">🥋</div>
+                <h3>White Belt — Beginners</h3>
+                <p>New to trading and want to learn the right foundations from day one. No bad habits to unlearn.</p>
+            </div>
+            <div class="audience-card">
+                <div class="icon">🟤</div>
+                <h3>Brown Belt — Developing</h3>
+                <p>Have some experience but struggling with consistency. Need structure and discipline to level up.</p>
+            </div>
+            <div class="audience-card">
+                <div class="icon">⬛</div>
+                <h3>Black Belt — Advanced</h3>
+                <p>Skilled but seeking community, accountability, and new perspectives from fellow practitioners.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Wins Showcase -->
+<section class="wins">
+    <div class="container">
+        <div class="wins-header">
+            <div class="section-label">
+                <i class="fas fa-trophy"></i>
+                Student Victories
+            </div>
+            <h2>Discipline Creates Results</h2>
+            <p>What happens when students follow the training.</p>
+        </div>
+        <div class="wins-grid">
+            <div class="win-card">
+                <div class="win-image">
+                    <img src="/trade-win-2.jpg" alt="MNQ Trade +$246.50">
+                </div>
+                <div class="win-info">
+                    <span class="win-tag profit">+$246.50</span>
+                    <p>MNQ Futures — Trend continuation</p>
+                </div>
+            </div>
+            <div class="win-card">
+                <div class="win-image">
+                    <img src="/trade-win-3.jpg" alt="MNQ Trade +$730">
+                </div>
+                <div class="win-info">
+                    <span class="win-tag profit">+$730</span>
+                    <p>MNQ Futures — Clean breakdown</p>
+                </div>
+            </div>
+            <div class="win-card">
+                <div class="win-image">
+                    <img src="/trade-win-1.jpg" alt="MNQ Trade +$91.50">
+                </div>
+                <div class="win-info">
+                    <span class="win-tag profit">+$91.50</span>
+                    <p>MNQ Futures — Quick scalp</p>
+                </div>
+            </div>
+            <div class="win-card">
+                <div class="win-image">
+                    <img src="/trade-win-4.jpg" alt="MNQ Trade +$2,040">
+                </div>
+                <div class="win-info">
+                    <span class="win-tag profit">+$2,040</span>
+                    <p>MNQ Futures — Big swing</p>
+                </div>
+            </div>
+        </div>
+        <p class="wins-disclaimer">Results shown are from individual members. Trading involves risk. Past performance does not guarantee future results.</p>
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+    <div class="container">
+        <div class="testimonials-header">
+            <div class="section-label">
+                <i class="fas fa-scroll"></i>
+                Words From Students
+            </div>
+            <h2>What the Dojo Has Built</h2>
+        </div>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">"The Dojo changed my entire approach. I went from blowing accounts to being consistently profitable. My win rate improved by 23% after implementing the risk management framework."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MC</div>
+                    <div class="testimonial-info">
+                        <h4>Marcus Chen</h4>
+                        <p>ES Futures Day Trader</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">"I've paid for expensive courses that gave me nothing. The Dojo actually teaches you to think like a trader. The daily live sessions alone are worth 10x the price."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SR</div>
+                    <div class="testimonial-info">
+                        <h4>Sarah Rodriguez</h4>
+                        <p>NQ Options Trader</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-quote">"Finally, a community without the guru BS. Real traders, real feedback, real improvement. Went from -$2k months to +$5k months in 6 months of training."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JT</div>
+                    <div class="testimonial-info">
+                        <h4>James Thompson</h4>
+                        <p>Futures Swing Trader</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Who It's For / Not For Section -->
+<section class="who-section">
+    <div class="container">
+        <div class="who-content">
+            <div class="who-grid">
+                <div class="who-card for">
+                    <h3>The Dojo Welcomes</h3>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Those who value discipline over shortcuts</li>
+                        <li><i class="fas fa-check"></i> Beginners ready to learn the right way</li>
+                        <li><i class="fas fa-check"></i> Traders seeking structure and accountability</li>
+                        <li><i class="fas fa-check"></i> Anyone committed to mastering their craft</li>
+                    </ul>
+                </div>
+                <div class="who-card not">
+                    <h3>The Dojo Rejects</h3>
+                    <ul>
+                        <li><i class="fas fa-times"></i> Gamblers seeking quick riches</li>
+                        <li><i class="fas fa-times"></i> Those expecting guaranteed profits</li>
+                        <li><i class="fas fa-times"></i> Anyone unwilling to follow the code</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Transparency Section -->
+<section class="transparency">
+    <div class="container">
+        <div class="transparency-content">
+            <div class="transparency-icon">
+                <i class="fas fa-balance-scale"></i>
+            </div>
+            <h3>The Code of Honor</h3>
+            <p>Dojo Gains is an educational platform. We teach skills, not guarantees. Trading involves significant risk. Every student is responsible for their own decisions, their own discipline, and their own outcomes.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="faq">
+    <div class="container">
+        <div class="faq-header">
+            <div class="section-label">
+                <i class="fas fa-question-circle"></i>
+                FAQ
+            </div>
+            <h2>Common Questions</h2>
+        </div>
+        <div class="faq-grid">
+            <div class="faq-item">
+                <h4>Is this a signal service?</h4>
+                <p>No. The Dojo teaches you to find your own setups and make your own decisions. We build traders, not followers.</p>
+            </div>
+            <div class="faq-item">
+                <h4>I'm a complete beginner. Can I join?</h4>
+                <p>Absolutely. Every master was once a white belt. The training starts from fundamentals and the community welcomes all levels.</p>
+            </div>
+            <div class="faq-item">
+                <h4>What markets do you train?</h4>
+                <p>Primarily futures (ES, NQ) and options. The principles apply across markets, but our live sessions focus on these.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How is this different from other groups?</h4>
+                <p>No hype. No guru worship. No promises of easy money. Just disciplined training, honest feedback, and a community focused on mastery.</p>
+            </div>
+            <div class="faq-item">
+                <h4>Can I leave anytime?</h4>
+                <p>Yes. Monthly memberships can be canceled anytime. We also offer a 30-day money-back guarantee. No hard feelings.</p>
+            </div>
+            <div class="faq-item">
+                <h4>How much time do I need to commit?</h4>
+                <p>Train at your own pace. The Dojo is open 24/7. Live sessions happen during market hours. Show up when you can.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Final CTA -->
+<section class="final-cta">
+    <div class="container">
+        <h2>Ready to Begin Your Training?</h2>
+        <p>The path to mastery starts with a single step. Enter the Dojo and start building the discipline, skills, and mindset of a true trader.</p>
+        <div class="final-cta-buttons">
+            <a href="https://whop.com/dojo-gains-club/" target="_blank" class="btn btn-primary">
+                <i class="fas fa-torii-gate"></i>
+                Enter the Dojo
+            </a>
+            <a href="#pricing" class="btn btn-secondary">
+                <i class="fas fa-scroll"></i>
+                View Training Paths
+            </a>
+            <a href="/apply.html" class="btn btn-secondary">
+                <i class="fas fa-user-ninja"></i>
+                Apply for Sensei Path
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="footer-content">
+            <a href="#" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="48" height="48" rx="10" fill="#E63946"/>
+                        <circle cx="24" cy="24" r="14" stroke="#0A0A0C" stroke-width="2.5" fill="none"/>
+                        <path d="M24 14V24L30 28" stroke="#0A0A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M18 34L24 28L30 34" stroke="#0A0A0C" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="logo-text">
+                    <span class="capital">DOJO</span>
+                    <span class="gains-club">Gains</span>
+                </div>
+            </a>
+            <div class="footer-links">
+                <a href="/terms.html">Terms of Service</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/contact.html">Contact</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Dojo Gains. All rights reserved. Trading involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results. This is not financial advice. Dojo Gains provides educational content only. Students are responsible for their own trading decisions.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        });
+    });
+
+    // Navbar background on scroll
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('nav');
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(9, 9, 11, 0.95)';
+        } else {
+            nav.style.background = 'rgba(9, 9, 11, 0.8)';
+        }
+    });
+
+    // Fade animations removed
+</script>
+
+</div><!-- end page-wrapper -->
+</body>
+</html>
+<!-- Dojo Gains -->
+
