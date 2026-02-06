@@ -3,273 +3,287 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sensei Mentorship Application | Dojo Gains</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Black Belt Application | Dojo Gains</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --dark-primary: #0a0a0a;
+            --dark-secondary: #111111;
+            --dark-card: #1a1a1a;
+            --accent-red: #E63946;
+            --accent-green: #22C55E;
+            --gray: #888;
+        }
+        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
+        
         body {
             font-family: 'Inter', sans-serif;
-            background: #0a0a0c;
-            color: #fff;
+            background: var(--dark-primary);
+            color: white;
             min-height: 100vh;
-            padding: 40px 20px;
         }
-
+        
         .container {
-            max-width: 600px;
+            max-width: 700px;
             margin: 0 auto;
+            padding: 60px 20px;
         }
-
-        .header {
-            text-align: center;
+        
+        .back-link {
+            color: var(--gray);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 40px;
+            transition: color 0.3s;
+        }
+        
+        .back-link:hover {
+            color: white;
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+        }
+        
+        h1 span {
+            color: var(--accent-red);
+        }
+        
+        .subtitle {
+            color: var(--gray);
+            font-size: 1.1rem;
             margin-bottom: 40px;
         }
-
-        .header h1 {
-            font-size: 32px;
-            font-weight: 800;
-            margin-bottom: 8px;
-            color: #F4A261;
-        }
-
-        .header p {
-            color: #9a9aaa;
-            font-size: 16px;
-        }
-
-        .form-card {
-            background: #111114;
-            border: 1px solid #2a2a32;
+        
+        .benefits {
+            background: var(--dark-card);
             border-radius: 16px;
-            padding: 32px;
+            padding: 30px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
         }
-
+        
+        .benefits h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            color: var(--accent-green);
+        }
+        
+        .benefits ul {
+            list-style: none;
+        }
+        
+        .benefits li {
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .benefits li:last-child {
+            border-bottom: none;
+        }
+        
+        .benefits li::before {
+            content: "✓";
+            color: var(--accent-green);
+            font-weight: bold;
+        }
+        
+        form {
+            background: var(--dark-card);
+            border-radius: 16px;
+            padding: 40px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
         .form-group {
             margin-bottom: 24px;
         }
-
+        
         label {
             display: block;
-            font-weight: 600;
             margin-bottom: 8px;
-            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.9);
         }
-
-        .required::after {
-            content: " *";
-            color: #E63946;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        textarea,
-        select {
+        
+        input, textarea, select {
             width: 100%;
-            padding: 14px 16px;
-            background: #1a1a1f;
-            border: 1px solid #2a2a32;
-            border-radius: 8px;
-            color: #fff;
-            font-size: 15px;
+            padding: 14px 18px;
+            background: var(--dark-primary);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 10px;
+            color: white;
+            font-size: 1rem;
             font-family: inherit;
-            transition: border-color 0.2s;
+            transition: border-color 0.3s;
         }
-
-        input:focus,
-        textarea:focus,
-        select:focus {
+        
+        input:focus, textarea:focus, select:focus {
             outline: none;
-            border-color: #E63946;
+            border-color: var(--accent-red);
         }
-
+        
         textarea {
-            min-height: 100px;
+            min-height: 120px;
             resize: vertical;
         }
-
+        
         select {
             cursor: pointer;
         }
-
+        
+        select option {
+            background: var(--dark-primary);
+        }
+        
         .btn-submit {
             width: 100%;
             padding: 16px;
-            background: #E63946;
-            color: #fff;
+            background: var(--accent-red);
+            color: white;
             border: none;
-            border-radius: 8px;
-            font-size: 16px;
+            border-radius: 10px;
+            font-size: 1.1rem;
             font-weight: 600;
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s;
         }
-
+        
         .btn-submit:hover {
-            background: #c1121f;
+            background: #d32f3f;
+            transform: translateY(-2px);
         }
-
+        
         .note {
             text-align: center;
+            color: var(--gray);
+            font-size: 0.9rem;
             margin-top: 20px;
-            color: #9a9aaa;
-            font-size: 13px;
         }
-
-        .back-link {
-            display: block;
-            text-align: center;
-            margin-top: 24px;
-            color: #9a9aaa;
-            text-decoration: none;
-            font-size: 14px;
-        }
-
-        .back-link:hover {
-            color: #fff;
-        }
-
+        
         .success-message {
             display: none;
             text-align: center;
             padding: 60px 20px;
         }
-
+        
         .success-message h2 {
-            color: #2A9D8F;
-            font-size: 28px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5rem;
             margin-bottom: 16px;
+            color: var(--accent-green);
         }
-
+        
         .success-message p {
-            color: #9a9aaa;
-            font-size: 16px;
-            line-height: 1.6;
+            color: var(--gray);
+            font-size: 1.1rem;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <h1>🥋 Sensei Mentorship Application</h1>
-            <p>Limited spots available. Serious inquiries only.</p>
-        </div>
-
-        <div class="form-card">
-            <form id="application-form" action="https://formsubmit.co/wong.isaiah924@gmail.com" method="POST">
-                <div class="form-group">
-                    <label class="required">Full Name</label>
-                    <input type="text" name="name" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Email Address</label>
-                    <input type="email" name="email" required>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Trading Experience Level</label>
-                    <select name="experience" required>
-                        <option value="">Select one...</option>
-                        <option value="Beginner (less than 6 months)">Beginner (less than 6 months)</option>
-                        <option value="Some experience (6 months - 2 years)">Some experience (6 months - 2 years)</option>
-                        <option value="Intermediate (2-5 years)">Intermediate (2-5 years)</option>
-                        <option value="Advanced (5+ years)">Advanced (5+ years)</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">What markets do you trade?</label>
-                    <input type="text" name="markets" placeholder="e.g., ES/NQ Futures, Options, Stocks..." required>
-                </div>
-
-                <div class="form-group">
-                    <label>Are you funded or pursuing a prop firm?</label>
-                    <select name="prop_firm">
-                        <option value="">Select one...</option>
-                        <option value="Currently funded">Yes, currently funded</option>
-                        <option value="In evaluation">In evaluation/challenge</option>
-                        <option value="Planning to start">Planning to start soon</option>
-                        <option value="Not interested">Not interested in prop firms</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">What's your biggest trading challenge right now?</label>
-                    <textarea name="challenge" required placeholder="Be specific - this helps us understand how we can help..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Why are you interested in mentorship?</label>
-                    <textarea name="why_mentorship" required placeholder="What are you hoping to achieve?"></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">What are your trading goals for the next 6-12 months?</label>
-                    <textarea name="goals" required placeholder="Be specific about what success looks like for you..."></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">How many hours per week can you dedicate?</label>
-                    <select name="hours" required>
-                        <option value="">Select one...</option>
-                        <option value="Less than 5 hours">Less than 5 hours</option>
-                        <option value="5-10 hours">5-10 hours</option>
-                        <option value="10-20 hours">10-20 hours</option>
-                        <option value="20+ hours">20+ hours</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label class="required">Are you prepared to commit to the program?</label>
-                    <select name="commitment" required>
-                        <option value="">Select one...</option>
-                        <option value="Yes, I'm ready">Yes, I'm ready to commit</option>
-                        <option value="Need more info">I need more information first</option>
-                    </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Anything else you'd like us to know?</label>
-                    <textarea name="additional" placeholder="Optional..."></textarea>
-                </div>
-
-                <button type="submit" class="btn-submit">Submit Application</button>
-            </form>
-
-            <div class="success-message" id="success">
-                <h2>✓ Application Received</h2>
-                <p>Thank you for applying! We review all applications personally. If you're a good fit, we'll reach out within 48 hours to schedule a discovery call.</p>
-                <p style="margin-top: 16px;">— The Shihan</p>
-            </div>
-        </div>
-
-        <p class="note">We review every application. Qualified applicants will be contacted to schedule a call.</p>
         <a href="/" class="back-link">← Back to Dojo Gains</a>
+        
+        <h1>🖤 BLACK <span>BELT</span> APPLICATION</h1>
+        <p class="subtitle">Private mentorship with limited spots. Apply below.</p>
+        
+        <div class="benefits">
+            <h3>What You Get</h3>
+            <ul>
+                <li>4x private 1-on-1 coaching calls (60 min each)</li>
+                <li>Personalized trading plan</li>
+                <li>Strategy review & refinement</li>
+                <li>Direct messaging access</li>
+                <li>Trade journaling feedback</li>
+                <li>Lifetime Black Belt membership</li>
+            </ul>
+        </div>
+        
+        <form id="application-form" action="https://formspree.io/f/xpwzgvqd" method="POST">
+            <div class="form-group">
+                <label for="name">Full Name *</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="discord">Discord Username</label>
+                <input type="text" id="discord" name="discord" placeholder="username#0000">
+            </div>
+            
+            <div class="form-group">
+                <label for="experience">Trading Experience *</label>
+                <select id="experience" name="experience" required>
+                    <option value="">Select your experience level</option>
+                    <option value="beginner">Beginner (0-6 months)</option>
+                    <option value="intermediate">Intermediate (6-18 months)</option>
+                    <option value="experienced">Experienced (18+ months)</option>
+                    <option value="profitable">Already profitable</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="markets">What do you trade? *</label>
+                <input type="text" id="markets" name="markets" placeholder="e.g., NQ futures, ES, stocks, crypto" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="goals">What are your trading goals? *</label>
+                <textarea id="goals" name="goals" placeholder="What do you want to achieve through mentorship?" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="why">Why do you want to join Black Belt? *</label>
+                <textarea id="why" name="why" placeholder="Tell us about yourself and why you're ready for 1-on-1 mentorship." required></textarea>
+            </div>
+            
+            <input type="hidden" name="_subject" value="New Black Belt Application - Dojo Gains">
+            
+            <button type="submit" class="btn-submit">Submit Application</button>
+            
+            <p class="note">Applications are reviewed within 48 hours. Limited spots available.</p>
+        </form>
+        
+        <div class="success-message" id="success">
+            <h2>Application Received!</h2>
+            <p>Thanks for applying. We'll review your application and get back to you within 48 hours.</p>
+        </div>
     </div>
-
+    
     <script>
-        const form = document.getElementById('application-form');
-        const success = document.getElementById('success');
-
-        form.addEventListener('submit', async (e) => {
+        document.getElementById('application-form').addEventListener('submit', async function(e) {
             e.preventDefault();
             
-            const formData = new FormData(form);
+            const form = e.target;
+            const data = new FormData(form);
             
             try {
                 await fetch(form.action, {
                     method: 'POST',
-                    body: formData,
+                    body: data,
                     headers: { 'Accept': 'application/json' }
                 });
                 
                 form.style.display = 'none';
-                success.style.display = 'block';
+                document.getElementById('success').style.display = 'block';
             } catch (error) {
                 alert('Something went wrong. Please try again.');
             }
