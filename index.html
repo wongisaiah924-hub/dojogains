@@ -1901,9 +1901,11 @@
       .then(function(){document.getElementById('popupForm').style.display='none';document.getElementById('popupSuccess').style.display='block'})
       .catch(function(){alert('Something went wrong. Please try again.');b.disabled=false;b.textContent='Claim My Discount'});
     }
+    /* Popup disabled — re-enable for special sales by uncommenting below
     if(!localStorage.getItem('dojo_lead_shown')){
       setTimeout(function(){document.getElementById('leadPopup').style.display='flex';localStorage.setItem('dojo_lead_shown','1')},5000);
     }
+    */
     </script>
 </body>
 </html>
