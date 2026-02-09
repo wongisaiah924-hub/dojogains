@@ -1871,5 +1871,39 @@
             });
         });
     </script>
+
+    <!-- Lead Capture Popup -->
+    <div id="leadPopup" style="display:none;position:fixed;inset:0;z-index:10000;background:rgba(0,0,0,.7);backdrop-filter:blur(4px);align-items:center;justify-content:center">
+      <div style="background:#12121A;border:1px solid #E63946;border-radius:16px;padding:40px;max-width:420px;width:90%;position:relative;box-shadow:0 0 40px rgba(230,57,70,.3)">
+        <button onclick="closePopup()" style="position:absolute;top:12px;right:16px;background:none;border:none;color:#888;font-size:24px;cursor:pointer;line-height:1">&times;</button>
+        <div id="popupForm">
+          <h2 style="color:#fff;font-family:'Bebas Neue',sans-serif;font-size:28px;text-align:center;margin:0 0 8px">🥋 Get 20% Off Your First Month</h2>
+          <p style="color:#aaa;text-align:center;margin:0 0 24px;font-size:14px">Enter your info below and we'll send you an exclusive discount code.</p>
+          <input id="leadName" type="text" placeholder="Your Name" style="width:100%;padding:12px 16px;margin-bottom:12px;background:#0A0A12;border:1px solid #333;border-radius:8px;color:#fff;font-size:15px;box-sizing:border-box">
+          <input id="leadEmail" type="email" placeholder="Email Address" style="width:100%;padding:12px 16px;margin-bottom:12px;background:#0A0A12;border:1px solid #333;border-radius:8px;color:#fff;font-size:15px;box-sizing:border-box">
+          <input id="leadPhone" type="tel" placeholder="Phone Number" style="width:100%;padding:12px 16px;margin-bottom:16px;background:#0A0A12;border:1px solid #333;border-radius:8px;color:#fff;font-size:15px;box-sizing:border-box">
+          <button id="leadSubmit" onclick="submitLead()" style="width:100%;padding:14px;background:#E63946;color:#fff;border:none;border-radius:8px;font-size:16px;font-weight:700;cursor:pointer;transition:background .2s">Claim My Discount</button>
+        </div>
+        <div id="popupSuccess" style="display:none;text-align:center;padding:20px 0">
+          <div style="font-size:48px;margin-bottom:16px">✅</div>
+          <h3 style="color:#fff;margin:0 0 8px;font-size:22px">Check your inbox!</h3>
+          <p style="color:#aaa;margin:0;font-size:14px">Your 20% off code is on its way.</p>
+        </div>
+      </div>
+    </div>
+    <script>
+    function closePopup(){document.getElementById('leadPopup').style.display='none'}
+    function submitLead(){
+      var n=document.getElementById('leadName').value.trim(),e=document.getElementById('leadEmail').value.trim(),p=document.getElementById('leadPhone').value.trim();
+      if(!n||!e)return alert('Please enter your name and email.');
+      var b=document.getElementById('leadSubmit');b.disabled=true;b.textContent='Sending...';
+      fetch('https://api.dojogains.com/lead',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:n,email:e,phone:p})})
+      .then(function(){document.getElementById('popupForm').style.display='none';document.getElementById('popupSuccess').style.display='block'})
+      .catch(function(){alert('Something went wrong. Please try again.');b.disabled=false;b.textContent='Claim My Discount'});
+    }
+    if(!localStorage.getItem('dojo_lead_shown')){
+      setTimeout(function(){document.getElementById('leadPopup').style.display='flex';localStorage.setItem('dojo_lead_shown','1')},5000);
+    }
+    </script>
 </body>
 </html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>HTF Bias Cheat Sheet - Dojo Gains</title>
+    <style>
+        @page { size: letter; margin: 0.5in; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 30px;
+            max-width: 850px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 3px solid #E63946;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+        .header h1 {
+            font-size: 28px;
+            color: #E63946;
+            letter-spacing: 2px;
+        }
+        .header p {
+            color: #888;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        .section {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 18px;
+            margin-bottom: 15px;
+            border-left: 4px solid #E63946;
+        }
+        .section h2 {
+            font-size: 16px;
+            color: #E63946;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section h2 .num {
+            background: #E63946;
+            color: #fff;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .box {
+            background: #111;
+            border-radius: 8px;
+            padding: 12px;
+        }
+        .box.bullish { border: 1px solid #22C55E; }
+        .box.bearish { border: 1px solid #E63946; }
+        .box h3 {
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+        .box.bullish h3 { color: #22C55E; }
+        .box.bearish h3 { color: #E63946; }
+        .box ul {
+            list-style: none;
+            font-size: 12px;
+            color: #ccc;
+        }
+        .box ul li {
+            padding: 3px 0;
+            padding-left: 15px;
+            position: relative;
+        }
+        .box ul li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #666;
+        }
+        .checklist {
+            background: #111;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #222;
+            font-size: 13px;
+        }
+        .checklist-item:last-child { border-bottom: none; }
+        .checkbox {
+            width: 18px;
+            height: 18px;
+            border: 2px solid #444;
+            border-radius: 4px;
+        }
+        .range-diagram {
+            text-align: center;
+            font-family: monospace;
+            font-size: 12px;
+            background: #111;
+            padding: 15px;
+            border-radius: 8px;
+            color: #ccc;
+        }
+        .range-diagram .premium { color: #E63946; }
+        .range-diagram .discount { color: #22C55E; }
+        .rule-box {
+            background: linear-gradient(135deg, #1a1a1a, #0a0a0a);
+            border: 1px solid #E63946;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            margin-top: 10px;
+        }
+        .rule-box p {
+            font-size: 14px;
+            color: #fff;
+            font-weight: 600;
+        }
+        .rule-box span { color: #E63946; }
+        .footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #444;
+            font-size: 11px;
+        }
+        .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🥋 HTF BIAS CHEAT SHEET</h1>
+        <p>DOJO GAINS - Determine Your Direction Before You Trade</p>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">1</span> STRUCTURE (Daily/4H)</h2>
+        <div class="grid">
+            <div class="box bullish">
+                <h3>✓ BULLISH BIAS</h3>
+                <ul>
+                    <li>Higher Highs (HH)</li>
+                    <li>Higher Lows (HL)</li>
+                    <li>Last BOS = broke high</li>
+                </ul>
+            </div>
+            <div class="box bearish">
+                <h3>✓ BEARISH BIAS</h3>
+                <ul>
+                    <li>Lower Highs (LH)</li>
+                    <li>Lower Lows (LL)</li>
+                    <li>Last BOS = broke low</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">2</span> PREMIUM vs DISCOUNT</h2>
+        <div class="range-diagram">
+            <span class="premium">━━━ SWING HIGH ━━━  ← PREMIUM (Sell Zone)</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+            - - - - 50% EQ - - - -  ← Equilibrium<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+            <span class="discount">━━━ SWING LOW ━━━━  ← DISCOUNT (Buy Zone)</span>
+        </div>
+        <div class="grid" style="margin-top: 12px;">
+            <div class="box bullish">
+                <h3>BUY in Discount</h3>
+                <ul><li>Price below 50% of range</li></ul>
+            </div>
+            <div class="box bearish">
+                <h3>SELL in Premium</h3>
+                <ul><li>Price above 50% of range</li></ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">3</span> LIQUIDITY TARGETS</h2>
+        <div class="grid">
+            <div class="box bullish">
+                <h3>Bullish Target</h3>
+                <ul>
+                    <li>Clean high above (untaken)</li>
+                    <li>Equal highs</li>
+                    <li>PDH not swept</li>
+                </ul>
+            </div>
+            <div class="box bearish">
+                <h3>Bearish Target</h3>
+                <ul>
+                    <li>Clean low below (untaken)</li>
+                    <li>Equal lows</li>
+                    <li>PDL not swept</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">4</span> SESSION CONTEXT</h2>
+        <div class="grid">
+            <div class="box bullish">
+                <h3>NY Bullish If:</h3>
+                <ul>
+                    <li>London swept the LOWS</li>
+                    <li>Asia built liquidity below</li>
+                </ul>
+            </div>
+            <div class="box bearish">
+                <h3>NY Bearish If:</h3>
+                <ul>
+                    <li>London swept the HIGHS</li>
+                    <li>Asia built liquidity above</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2><span class="num">5</span> PRE-TRADE CHECKLIST</h2>
+        <div class="checklist">
+            <div class="checklist-item"><div class="checkbox"></div> Daily/4H structure direction? (HH/HL or LH/LL)</div>
+            <div class="checklist-item"><div class="checkbox"></div> Premium or Discount?</div>
+            <div class="checklist-item"><div class="checkbox"></div> Where is nearest liquidity?</div>
+            <div class="checklist-item"><div class="checkbox"></div> What did London/Asia sweep?</div>
+            <div class="checklist-item"><div class="checkbox"></div> Do 3+ confluences align?</div>
+        </div>
+        <div class="rule-box">
+            <p>✓ 3-4 Align = <span>TRADE WITH CONFIDENCE</span></p>
+            <p style="color: #888; font-weight: normal; font-size: 12px; margin-top: 5px;">✗ Mixed signals = NO TRADE or reduced size</p>
+        </div>
+    </div>
+
+    <div class="footer">
+        DOJO GAINS © 2026 | dojogains.com | Master the Art of Trading
+    </div>
+</body>
+</html>

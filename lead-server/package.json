@@ -1,0 +1,7 @@
+{
+  "name": "dojo-gains-lead-server",
+  "version": "1.0.0",
+  "description": "Lead capture server for Dojo Gains",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" }
+}
