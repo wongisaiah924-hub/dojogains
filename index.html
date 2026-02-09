@@ -1250,6 +1250,117 @@
             font-size: 0.85rem;
         }
 
+        /* ===== ABOUT / SENSEI ===== */
+        .about-sensei {
+            background: linear-gradient(180deg, rgba(230,57,70,0.03) 0%, transparent 100%);
+        }
+        .about-content {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .about-avatar {
+            width: 280px;
+            height: 280px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%);
+            border: 2px solid rgba(230,57,70,0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .about-avatar-silhouette {
+            font-size: 120px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+        }
+        .about-avatar-badge {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #E63946;
+            color: #fff;
+            padding: 6px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .about-bio h3 {
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 0 0 8px 0;
+        }
+        .about-bio .about-alias {
+            color: #E63946;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+        .about-bio p {
+            color: rgba(255,255,255,0.7);
+            line-height: 1.8;
+            font-size: 1.05rem;
+            margin-bottom: 16px;
+        }
+        .about-philosophy {
+            background: rgba(230,57,70,0.08);
+            border-left: 3px solid #E63946;
+            padding: 16px 24px;
+            border-radius: 0 8px 8px 0;
+            margin-top: 20px;
+        }
+        .about-philosophy p {
+            color: #E63946;
+            font-weight: 600;
+            font-style: italic;
+            font-size: 1.1rem;
+            margin: 0;
+        }
+        .about-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 24px;
+        }
+        .about-stat {
+            text-align: center;
+        }
+        .about-stat-num {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #E63946;
+        }
+        .about-stat-label {
+            font-size: 0.8rem;
+            color: rgba(255,255,255,0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== SOCIAL LINKS ===== */
+        .footer-socials {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+        }
+        .footer-socials a {
+            color: rgba(255,255,255,0.5);
+            font-size: 1.3rem;
+            transition: all 0.3s;
+        }
+        .footer-socials a:hover {
+            color: #E63946;
+            transform: translateY(-2px);
+        }
+
         /* ===== RESPONSIVE ===== */
         @media (max-width: 1024px) {
             .hero-container {
@@ -1303,6 +1414,30 @@
         }
 
         @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 30px;
+            }
+            .about-avatar {
+                width: 200px;
+                height: 200px;
+                margin: 0 auto;
+            }
+            .about-avatar-silhouette {
+                font-size: 80px;
+            }
+            .about-philosophy {
+                border-left: none;
+                border-top: 3px solid #E63946;
+                border-radius: 0 0 8px 8px;
+            }
+            .about-stats {
+                justify-content: center;
+            }
+            .footer-socials {
+                justify-content: center;
+            }
             .pricing-grid {
                 grid-template-columns: 1fr;
             }
@@ -1331,6 +1466,7 @@
             </a>
             <ul class="nav-links">
                 <li><a href="#features">Training</a></li>
+                <li><a href="#about">Sensei</a></li>
                 <li><a href="#pricing">Pricing</a></li>
                 <li><a href="#testimonials">Results</a></li>
                 <li><a href="/faq.html">FAQ</a></li>
@@ -1589,6 +1725,46 @@
         </div>
     </section>
 
+    <!-- About the Sensei -->
+    <section class="about-sensei" id="about">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <div class="section-label"><i class="fas fa-user-ninja"></i> Your Guide</div>
+                <h2 class="section-title">Meet the Sensei</h2>
+                <p class="section-subtitle">The trader behind the dojo.</p>
+            </div>
+            <div class="about-content animate-on-scroll">
+                <div class="about-avatar">
+                    <div class="about-avatar-silhouette">🥷</div>
+                    <div class="about-avatar-badge">SENSEI</div>
+                </div>
+                <div class="about-bio">
+                    <h3>Zay</h3>
+                    <div class="about-alias">Founder & Head Trader</div>
+                    <p>5 years in the markets. Started with options, moved to futures to fit trading around a 9-to-5. That constraint became a superpower — it forced me to develop a strategy that's efficient, disciplined, and works on any chart.</p>
+                    <p>Dojo Gains isn't about hype or flexing. It's about building real skill through structure, repetition, and relentless self-improvement. The information I teach can be applied to any market, any timeframe.</p>
+                    <div class="about-philosophy">
+                        <p>"Master your strategy. Master your mind. Master the market."</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="about-stat">
+                            <div class="about-stat-num">5+</div>
+                            <div class="about-stat-label">Years Trading</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-num">3</div>
+                            <div class="about-stat-label">Belt Tiers</div>
+                        </div>
+                        <div class="about-stat">
+                            <div class="about-stat-num">∞</div>
+                            <div class="about-stat-label">Charts Covered</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Pricing Section -->
     <section class="pricing" id="pricing">
         <div class="section-container">
@@ -1786,6 +1962,15 @@
                     <a href="/terms.html">Terms</a>
                     <a href="/privacy.html">Privacy</a>
                     <a href="/contact.html">Contact</a>
+                </div>
+                <div class="footer-socials">
+                    <a href="https://discord.gg/dojogains" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+                    <!-- Add more socials when ready:
+                    <a href="https://twitter.com/dojogains" target="_blank" title="Twitter/X"><i class="fab fa-x-twitter"></i></a>
+                    <a href="https://instagram.com/dojogains" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://tiktok.com/@dojogains" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="https://youtube.com/@dojogains" target="_blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+                    -->
                 </div>
             </div>
             <div class="footer-bottom">
