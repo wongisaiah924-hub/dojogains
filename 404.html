@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Dojo Gains</title>
+    <meta name="description" content="The page you're looking for doesn't exist. Return to Dojo Gains to master the art of trading.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #000000;
+            color: #ffffff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .dojo-logo {
+            font-size: 120px;
+            line-height: 1;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        .brand {
+            color: #E63946;
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
+        
+        .tagline {
+            color: #888888;
+            font-size: 18px;
+            margin-bottom: 40px;
+        }
+        
+        .error-code {
+            color: #E63946;
+            font-size: 120px;
+            font-weight: bold;
+            line-height: 1;
+            margin-bottom: 20px;
+            opacity: 0.8;
+        }
+        
+        .message {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        
+        .submessage {
+            font-size: 16px;
+            color: #aaaaaa;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+        
+        .home-button {
+            display: inline-block;
+            background: #E63946;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 32px;
+            border-radius: 8px;
+            font-size: 18px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid #E63946;
+        }
+        
+        .home-button:hover {
+            background: transparent;
+            color: #E63946;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(230, 57, 70, 0.3);
+        }
+        
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #555555;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .dojo-logo {
+                font-size: 80px;
+            }
+            
+            .brand {
+                font-size: 32px;
+            }
+            
+            .tagline {
+                font-size: 16px;
+            }
+            
+            .error-code {
+                font-size: 80px;
+            }
+            
+            .message {
+                font-size: 20px;
+            }
+            
+            .submessage {
+                font-size: 14px;
+            }
+            
+            .home-button {
+                padding: 14px 28px;
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="dojo-logo">🥋</div>
+        
+        <h1 class="brand">DOJO GAINS</h1>
+        <p class="tagline">Master the Art of Trading</p>
+        
+        <div class="error-code">404</div>
+        
+        <h2 class="message">This page doesn't exist</h2>
+        <p class="submessage">
+            Looks like you took a wrong turn in the dojo.<br>
+            Let's get you back to mastering your trading skills.
+        </p>
+        
+        <a href="/" class="home-button">Return Home</a>
+    </div>
+    
+    <footer class="footer">
+        © 2025 Dojo Gains • No hype. No gurus. Just growth.
+    </footer>
+</body>
+</html>
