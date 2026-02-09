@@ -282,7 +282,7 @@
             const appData = { name, email, discord, experience, markets, goals, why };
             
             try {
-                await fetch('http://217.77.8.216:3848/application', {
+                await fetch('https://api.dojogains.com/application', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(appData)
