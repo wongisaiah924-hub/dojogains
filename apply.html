@@ -341,16 +341,20 @@
             const appData = { name, email, discord, experience, markets, goals, why };
             
             try {
-                await fetch('https://api.dojogains.com/application', {
+                const res = await fetch('https://api.dojogains.com/application', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(appData)
                 });
                 
+                if (!res.ok) throw new Error('Server error');
+                const result = await res.json();
+                if (!result.success) throw new Error('Submission failed');
+                
                 form.style.display = 'none';
                 document.getElementById('success').style.display = 'block';
             } catch (error) {
-                alert('Something went wrong. Please try again.');
+                alert('Something went wrong submitting your application. Please try again or contact us at support@dojogains.com');
             }
         });
     </script>
