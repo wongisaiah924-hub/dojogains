@@ -314,6 +314,7 @@
                 <textarea id="why" name="why" placeholder="Tell us about yourself and why you're ready for 1-on-1 mentorship." required></textarea>
             </div>
             
+            <div style="position:absolute;left:-9999px;"><input type="text" name="website" id="website" tabindex="-1" autocomplete="off"></div>
             <button type="submit" class="btn-submit">Submit Application</button>
             
             <p class="note">Applications are reviewed within 48 hours. Limited spots available.</p>
@@ -338,7 +339,8 @@
             const goals = document.getElementById('goals').value;
             const why = document.getElementById('why').value;
             
-            const appData = { name, email, discord, experience, markets, goals, why };
+            const website = document.getElementById('website').value;
+            const appData = { name, email, discord, experience, markets, goals, why, website };
             
             try {
                 const res = await fetch('https://api.dojogains.com/application', {
